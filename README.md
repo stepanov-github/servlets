@@ -1,2 +1,2 @@
-# Домашнее задание к занятию «2.1. Servlet Containers»
+# WebApp Runner* (задача со звёздочкой)
 
