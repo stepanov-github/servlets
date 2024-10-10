@@ -1,11 +1,13 @@
 package ru.home.service;
 
+import org.springframework.stereotype.Service;
 import ru.home.exception.NotFoundException;
 import ru.home.model.Post;
 import ru.home.repository.PostRepository;
 
 import java.util.List;
 
+@Service
 public class PostService {
     private final PostRepository repository;
 

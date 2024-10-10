@@ -1,5 +1,6 @@
 package ru.home.servlet;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.home.controller.PostController;
 import ru.home.repository.PostRepository;
 import ru.home.service.PostService;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MainServlet extends HttpServlet {
     private PostController controller;
+    private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("ru.home");
     private static final String POST_PATH = "/api/posts";
     private static final String ID_PATH = POST_PATH + "/\\d+";
     private static final String GET_METHOD = "GET";
@@ -18,9 +20,7 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() {
-        final var repository = new PostRepository();
-        final var service = new PostService(repository);
-        controller = new PostController(service);
+        controller = context.getBean(PostController.class);
     }
 
     @Override
